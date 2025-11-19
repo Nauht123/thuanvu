@@ -1,0 +1,33 @@
+Soil Moisture sensor - ESP32: 
+AOUT 	 G33
+VCC 	 3V3
+GND 	 GND
+
+Water Level sensor - ESP32:
+S 	 G34
++ 	 3V3
+- 	 GND
+
+DHT22 - ESP32:
+OUT 	 G23
++ 	 3V3 
+- 	 GND
+
+Relay - ESP32: 
++ 	 V5
+- 	 GND
+S 	 G17
+
+DS3231  ESP32
+SQW	GPIO 4 (or any other digital pin)
+SCL	GPIO 22
+SDA	GPIO 21
+VCC	3V3
+GND	GND
+
+Relay - power - pump(v1)
+COM 	 		battery's red wire
+NO 	 		pump's red wire
+pump's black wire 	battery's black wires
+
+Note: As for power source, the pump and ESP32 use 2 DIFFERENT sources. ESP32 uses 5V input, you can either connect it to a computer or a step-up voltage converter.

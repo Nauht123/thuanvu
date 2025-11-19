@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stress & Focus Monitor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+
+        <!-- HEADER (ICON REMOVED) -->
+        <div class="header">
+            <h1>STRESS & FOCUS MONITOR</h1>
+        </div>
+
+        <div class="main-grid">
+
+            <!-- SpO2 Gauge -->
+            <div class="card spo2-card">
+                <h2>SpO₂</h2>
+                <div class="gauge">
+                    <svg class="gauge-ring" viewBox="0 0 100 100">
+                        <defs>
+                            <linearGradient id="spo2Gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop class="gradient-start" offset="0%" />
+                                <stop class="gradient-end" offset="100%" />
+                            </linearGradient>
+                        </defs>
+                        <circle class="gauge-background" cx="50" cy="50" r="40" />
+                        <circle class="gauge-fill" cx="50" cy="50" r="40" stroke="url(#spo2Gradient)" />
+                    </svg>
+                    <div class="gauge-value" id="spo2-value">98%</div>
+                </div>
+            </div>
+
+            <!-- Heart Rate -->
+            <div class="card hr-card">
+                <h2>HEART RATE</h2>
+                <p id="hr-value">72 bpm</p>
+                <p class="additional-info" id="status-value">Status: Normal</p>
+            </div>
+
+            <!-- Mode -->
+            <div class="card mode-card">
+                <div class="toggle">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="mode-toggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <h2 id="mode-title">AI MODE</h2>
+
+                <div id="mode-content">
+
+                    <!-- Manual – NOW SHOWS AI EMOTION -->
+                    <div class="manual-content" id="manual-content">
+                        <p class="emotion-label">Cảm xúc hiện tại:</p>
+                        <p id="emotion-result" class="emotion-result">Đang phân tích...</p>
+                    </div>
+
+                    <!-- Auto – Thresholds etc -->
+                    <div class="auto-content" id="auto-content" style="display: none;">
+                        <p>
+                            <span class="label">User:</span>
+                            <select id="user-select">
+                                <option value="User1">User 1</option>
+                                <option value="User2">User 2</option>
+                                <option value="User3">User 3</option>
+                            </select>
+                        </p>
+                        <p><span class="label">Lower Threshold:</span> <span id="lower-threshold">30%</span></p>
+                        <p><span class="label">Upper Threshold:</span> <span id="upper-threshold">70%</span></p>
+                        <button id="send-to-device" class="device-btn">SEND DATA</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Graph – NOW HEART RATE -->
+            <div class="card graph-card">
+                <h2>HEART RATE HISTORY</h2>
+                <canvas id="stressChart"></canvas>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
